@@ -1,11 +1,11 @@
 
-import { Input } from "@/registry/default/ui/input"
+import { Input } from "@/registry/new-york/ui/input"
 import React from "react"
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { FileImage as LucideImage } from "lucide-react";
 import { VariantProps, cva } from "class-variance-authority";
-import { buttonVariants } from "@/registry/default/ui/button";
+import { buttonVariants } from "@/registry/new-york/ui/button";
 
 type FilePreviewContextProps = {
   file: string | null
@@ -35,38 +35,42 @@ type FileInputProps = {
   className?: string
 }
 
-const FileInput = ({className}: FileInputProps) => {
+const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(({ className, ...props }) => {
   const { setFile } = useFilePreviewContext();
   return (
-    <Input id="picture" type="file" accept="image/png, image/jpeg, image/svg" className={cn(className)} onChange={(e) => {
+    <Input id="picture" type="file" accept="image/png, image/jpeg, image/svg" className={cn(className)} {...props} onChange={(e) => {
       const file = e.target.files?.[0]
       if (file) {
         setFile(URL.createObjectURL(file))
       }
     }} />
   )
-}
+});
+FileInput.displayName = "FileInput";
 
 type FileButtonProps = {
   className?: string
+  accept?: string
 } & VariantProps<typeof buttonVariants>;
 
-const FileButton = ({ className, variant, size }: FileButtonProps) => {
+const FileButton = React.forwardRef<HTMLInputElement, FileButtonProps>(({ className, variant, size, accept, ...props }: FileButtonProps) => {
   const { setFile } = useFilePreviewContext();
   const buttonVariant = buttonVariants({ variant, size, className }) || "default";
   return (
     <div>
-      <input id="inputButton" accept="image/png, image/jpeg, image/svg" type="file" hidden onChange={(e) => {
+      <input id="inputButton" type="file" accept={accept ? accept : "image/png, image/jpeg, image/svg"} hidden onChange={(e) => {
         const file = e.target.files?.[0]
         if (file) {
           setFile(URL.createObjectURL(file))
         }
       }} />
-      <label className={cn("flex cursor-pointer p-2", buttonVariant, className)} htmlFor="inputButton">{<LucideImage />}</label>
+      <label className={cn("flex cursor-pointer p-2", buttonVariant, className)} {...props} htmlFor="inputButton">{<LucideImage />}</label>
     </div>
   )
 
-}
+});
+
+FileButton.displayName = "FileButton";
 
 type FileImageProps = {
   width: number
@@ -74,7 +78,7 @@ type FileImageProps = {
   className?: string
 }
 
-const FileImage = ({ width, height, className }: FileImageProps) => {
+const FileImage = React.forwardRef<HTMLInputElement, FileImageProps>(({ width, height, className }: FileImageProps) => {
   const { file } = useFilePreviewContext();
 
   return (
@@ -82,7 +86,9 @@ const FileImage = ({ width, height, className }: FileImageProps) => {
       {file && <Image width={width} height={height} src={file} alt="" className={cn(`w-[${width}px] h-[${height}px]`, className)} />}
     </div>
   )
-}
+});
+
+FileImage.displayName = "FileImage";
 
 type FilePreviewProps = {
   children: React.ReactNode
@@ -90,13 +96,14 @@ type FilePreviewProps = {
   setFile: (file: string | null) => void
 }
 
-const FilePreview = ({ children, file, setFile }: FilePreviewProps) => {
-
+const FilePreview = React.forwardRef<HTMLDivElement, FilePreviewProps>(({ children, file, setFile }) => {
   return (
     <FilePreviewContext.Provider value={{ file: file, setFile: setFile }}>
       {children}
     </FilePreviewContext.Provider>
   )
-}
+});
+
+FilePreview.displayName = "FilePreview";
 
 export { FilePreview, FileImage, FileInput, FileButton, useFilePreview }
