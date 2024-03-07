@@ -7,7 +7,7 @@ export default function FilePreviewInputDemo() {
     <FilePreview file={file} setFile={setFile}>
       <div className="relative mb-5">
         <FileInput/>
-        <FileImage width={200} height={200}/>
+        <FileImage width={200} height={200} className="m-auto mt-2"/>
       </div>
     </FilePreview>
   )
