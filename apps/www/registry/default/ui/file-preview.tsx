@@ -38,7 +38,7 @@ type FileInputProps = {
 const FileInput = ({className}: FileInputProps) => {
   const { setFile } = useFilePreviewContext();
   return (
-    <Input id="picture" type="file" className={cn(className)} onChange={(e) => {
+    <Input id="picture" type="file" accept="image/png, image/jpeg, image/svg" className={cn(className)} onChange={(e) => {
       const file = e.target.files?.[0]
       if (file) {
         setFile(URL.createObjectURL(file))
@@ -56,7 +56,7 @@ const FileButton = ({ className, variant, size }: FileButtonProps) => {
   const buttonVariant = buttonVariants({ variant, size, className }) || "default";
   return (
     <div>
-      <input id="inputButton" type="file" hidden onChange={(e) => {
+      <input id="inputButton" accept="image/png, image/jpeg, image/svg" type="file" hidden onChange={(e) => {
         const file = e.target.files?.[0]
         if (file) {
           setFile(URL.createObjectURL(file))
