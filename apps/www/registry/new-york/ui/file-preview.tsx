@@ -1,3 +1,4 @@
+
 import { Input } from "@/registry/new-york/ui/input"
 import React from "react"
 import Image from "next/image";
@@ -30,10 +31,14 @@ const useFilePreview = () => {
   return { file, setFile }
 }
 
-const FileInput = () => {
+type FileInputProps = {
+  className?: string
+}
+
+const FileInput = ({className}: FileInputProps) => {
   const { setFile } = useFilePreviewContext();
   return (
-    <Input id="picture" type="file" className="" onChange={(e) => {
+    <Input id="picture" type="file" className={cn(className)} onChange={(e) => {
       const file = e.target.files?.[0]
       if (file) {
         setFile(URL.createObjectURL(file))
@@ -57,7 +62,7 @@ const FileButton = ({ className, variant, size }: FileButtonProps) => {
           setFile(URL.createObjectURL(file))
         }
       }} />
-      <label className={cn("flex cursor-pointer p-2", buttonVariant)} htmlFor="inputButton">{<LucideImage />}</label>
+      <label className={cn("flex cursor-pointer p-2", buttonVariant, className)} htmlFor="inputButton">{<LucideImage />}</label>
     </div>
   )
 
@@ -66,14 +71,15 @@ const FileButton = ({ className, variant, size }: FileButtonProps) => {
 type FileImageProps = {
   width: number
   height: number
+  className?: string
 }
 
-const FileImage = ({ width, height }: FileImageProps) => {
+const FileImage = ({ width, height, className }: FileImageProps) => {
   const { file } = useFilePreviewContext();
 
   return (
     <div>
-      {file && <Image width={width} height={height} src={file} alt="" className={`w-[${width}px] h-[${height}px]`} />}
+      {file && <Image width={width} height={height} src={file} alt="" className={cn(`w-[${width}px] h-[${height}px]`, className)} />}
     </div>
   )
 }

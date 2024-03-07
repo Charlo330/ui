@@ -1,5 +1,5 @@
 import * as React from "react"
-import { useFilePreview, FilePreview, FileButton, FileImage, FileInput } from "@/registry/new-york/ui/file-preview"
+import { useFilePreview, FilePreview, FileImage, FileInput } from "@/registry/new-york/ui/file-preview"
 
 export default function FilePreviewInputDemo() {
   const {file, setFile} = useFilePreview();

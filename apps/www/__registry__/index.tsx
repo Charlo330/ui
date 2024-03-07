@@ -710,7 +710,7 @@ export const Index: Record<string, any> = {
       type: "components:example",
       registryDependencies: ["input","label"],
       component: React.lazy(() => import("@/registry/default/example/file-preview-input")),
-      files: ["registry/default/example/file-preview-demo.tsx"],
+      files: ["registry/default/example/file-preview-input.tsx"],
     },
     "hover-card-demo": {
       name: "hover-card-demo",
@@ -1950,7 +1950,7 @@ export const Index: Record<string, any> = {
       type: "components:example",
       registryDependencies: ["input","label"],
       component: React.lazy(() => import("@/registry/new-york/example/file-preview-input")),
-      files: ["registry/new-york/example/file-preview-demo.tsx"],
+      files: ["registry/new-york/example/file-preview-input.tsx"],
     },
     "hover-card-demo": {
       name: "hover-card-demo",

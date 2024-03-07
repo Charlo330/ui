@@ -617,7 +617,7 @@ const example: Registry = [
     name: "file-preview-input",
     type: "components:example",
     registryDependencies: ["input", "label"],
-    files: ["example/file-preview-demo.tsx"],
+    files: ["example/file-preview-input.tsx"],
   },
   {
     name: "hover-card-demo",
