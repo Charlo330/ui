@@ -1,0 +1,66 @@
+---
+title: File Preview
+description: Display the selected picture to the user.
+featured: true
+component: true
+---
+
+<ComponentPreview name="file-preview" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add file-preview
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="file-preview" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import {
+  useFilePreview,
+  FilePreview,
+  FileButton,
+  FileImage
+} from "@/components/ui/file-preview"
+```
+
+```tsx
+<FilePreview file={file} setFile={setFile}>
+  <div className="relative mb-5">
+    <FileButton className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" variant={"default"}/>
+    <FileImage width={200} height={200}/>
+  </div>
+</FilePreview>
+```
+
+## Examples
+
+### Input
+
+<ComponentPreview name="file-preview-input" />

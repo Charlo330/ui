@@ -195,6 +195,11 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "File Preview",
+          href: "/docs/components/file-preview",
+          items: [],
+        },
+        {
           title: "Form",
           href: "/docs/components/form",
           items: [],

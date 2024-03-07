@@ -698,6 +698,20 @@ export const Index: Record<string, any> = {
       component: React.lazy(() => import("@/registry/default/example/dropdown-menu-radio-group")),
       files: ["registry/default/example/dropdown-menu-radio-group.tsx"],
     },
+    "file-preview": {
+      name: "file-preview",
+      type: "components:example",
+      registryDependencies: ["input","label"],
+      component: React.lazy(() => import("@/registry/default/example/file-preview")),
+      files: ["registry/default/example/file-preview.tsx"],
+    },
+    "file-preview-input": {
+      name: "file-preview-input",
+      type: "components:example",
+      registryDependencies: ["input","label"],
+      component: React.lazy(() => import("@/registry/default/example/file-preview-input")),
+      files: ["registry/default/example/file-preview-demo.tsx"],
+    },
     "hover-card-demo": {
       name: "hover-card-demo",
       type: "components:example",
@@ -1923,6 +1937,20 @@ export const Index: Record<string, any> = {
       registryDependencies: ["dropdown-menu","radio-group"],
       component: React.lazy(() => import("@/registry/new-york/example/dropdown-menu-radio-group")),
       files: ["registry/new-york/example/dropdown-menu-radio-group.tsx"],
+    },
+    "file-preview": {
+      name: "file-preview",
+      type: "components:example",
+      registryDependencies: ["input","label"],
+      component: React.lazy(() => import("@/registry/new-york/example/file-preview")),
+      files: ["registry/new-york/example/file-preview.tsx"],
+    },
+    "file-preview-input": {
+      name: "file-preview-input",
+      type: "components:example",
+      registryDependencies: ["input","label"],
+      component: React.lazy(() => import("@/registry/new-york/example/file-preview-input")),
+      files: ["registry/new-york/example/file-preview-demo.tsx"],
     },
     "hover-card-demo": {
       name: "hover-card-demo",
