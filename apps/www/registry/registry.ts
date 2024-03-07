@@ -617,13 +617,13 @@ const example: Registry = [
     name: "file-preview-demo",
     type: "components:example",
     registryDependencies: ["input", "label"],
-    files: ["example/file-preview.tsx"],
+    files: ["example/file-preview-demo.tsx"],
   },
   {
     name: "file-preview-input-demo",
     type: "components:example",
     registryDependencies: ["input", "label"],
-    files: ["example/file-preview-input.tsx"],
+    files: ["example/file-preview-input-demo.tsx"],
   },
   {
     name: "hover-card-demo",
