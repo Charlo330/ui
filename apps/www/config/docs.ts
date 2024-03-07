@@ -197,6 +197,7 @@ export const docsConfig: DocsConfig = {
         {
           title: "File Preview",
           href: "/docs/components/file-preview",
+          label: "New",
           items: [],
         },
         {

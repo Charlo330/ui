@@ -105,6 +105,12 @@ const ui: Registry = [
     files: ["ui/dropdown-menu.tsx"],
   },
   {
+    name: "file-preview",
+    type: "components:ui",
+    dependencies: ["Input, Button"],
+    files: ["ui/file-preview.tsx"],
+  },
+  {
     name: "form",
     type: "components:ui",
     dependencies: [
@@ -608,13 +614,13 @@ const example: Registry = [
     files: ["example/dropdown-menu-radio-group.tsx"],
   },
   {
-    name: "file-preview",
+    name: "file-preview-demo",
     type: "components:example",
     registryDependencies: ["input", "label"],
     files: ["example/file-preview.tsx"],
   },
   {
-    name: "file-preview-input",
+    name: "file-preview-input-demo",
     type: "components:example",
     registryDependencies: ["input", "label"],
     files: ["example/file-preview-input.tsx"],

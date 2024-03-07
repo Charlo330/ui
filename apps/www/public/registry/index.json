@@ -175,6 +175,16 @@
     "type": "components:ui"
   },
   {
+    "name": "file-preview",
+    "dependencies": [
+      "Input, Button"
+    ],
+    "files": [
+      "ui/file-preview.tsx"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "form",
     "dependencies": [
       "@radix-ui/react-label",
