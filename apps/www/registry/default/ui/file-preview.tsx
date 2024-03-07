@@ -1,11 +1,11 @@
 
-import { Input } from "@/registry/new-york/ui/input"
+import { Input } from "@/registry/default/ui/input"
 import React from "react"
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { FileImage as LucideImage } from "lucide-react";
-import { VariantProps, cva } from "class-variance-authority";
-import { buttonVariants } from "@/registry/new-york/ui/button";
+import { VariantProps } from "class-variance-authority";
+import { buttonVariants } from "@/registry/default/ui/button";
 
 type FilePreviewContextProps = {
   file: string | null
